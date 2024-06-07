@@ -6,7 +6,7 @@
 /*   By: alejhern <alejhern@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 22:06:22 by alejhern          #+#    #+#             */
-/*   Updated: 2024/06/07 18:35:06 by alejhern         ###   ########.fr       */
+/*   Updated: 2024/06/07 18:50:40 by alejhern         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,20 +43,28 @@ void	ft_sort_params(char **argv)
 {
 	int	i;
 	int	j;
+	char	*tmp;
 
 	i = 1;
 	while (argv[i])
 	{
-		j = i;
+		j = i + 1;
 		while (argv[j])
 		{
 			if (ft_strcmp(argv[i], argv[j]) > 0)
 			{
-				ft_print_param(argv[j]);
-				break ;
+				tmp = argv[i];
+                		argv[i] = argv[j];
+                		argv[j] = tmp;
 			}
 			j++;
 		}
+		i++;
+	}
+	i = 1;
+	while (argv[i])
+	{
+		ft_print_param(argv[i]);
 		i++;
 	}
 }
