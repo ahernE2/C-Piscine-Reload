@@ -6,24 +6,25 @@
 /*   By: alejhern <alejhern@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 20:53:59 by alejhern          #+#    #+#             */
-/*   Updated: 2024/06/06 20:54:11 by alejhern         ###   ########.fr       */
+/*   Updated: 2024/06/07 18:33:28 by alejhern         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <unistd.h>
+
+void	ft_putchar(char c);
 
 void	ft_is_negative(int n)
 {
-	char	signo;
+	char	sign;
 
 	if (n >= 0)
 	{
-		signo = 'P';
+		sign = 'P';
 	}
 	else
 	{
-		signo = 'N';
+		sign = 'N';
 	}
-	write(1, &signo, 1);
+	ft_putchar(sign);
 }
 /*
 int main(){

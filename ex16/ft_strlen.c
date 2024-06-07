@@ -6,11 +6,9 @@
 /*   By: alejhern <alejhern@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 21:40:12 by alejhern          #+#    #+#             */
-/*   Updated: 2024/06/06 21:40:18 by alejhern         ###   ########.fr       */
+/*   Updated: 2024/06/07 18:30:55 by alejhern         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <unistd.h>
 
 int	ft_strlen(char *str)
 {

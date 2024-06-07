@@ -6,11 +6,9 @@
 /*   By: alejhern <alejhern@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 20:56:55 by alejhern          #+#    #+#             */
-/*   Updated: 2024/06/06 20:57:01 by alejhern         ###   ########.fr       */
+/*   Updated: 2024/06/07 18:27:43 by alejhern         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <unistd.h>
 
 void	ft_ft(int *nbr)
 {
