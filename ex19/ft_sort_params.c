@@ -6,11 +6,9 @@
 /*   By: alejhern <alejhern@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 22:06:22 by alejhern          #+#    #+#             */
-/*   Updated: 2024/06/08 02:49:43 by alejhern         ###   ########.fr       */
+/*   Updated: 2024/06/08 16:19:44 by alejhern         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <unistd.h>
 
 void	ft_putchar(char c);
 
