@@ -6,7 +6,7 @@
 /*   By: alejhern <alejhern@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 19:01:27 by alejhern          #+#    #+#             */
-/*   Updated: 2024/06/08 00:02:55 by alejhern         ###   ########.fr       */
+/*   Updated: 2024/06/08 02:36:27 by alejhern         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	ft_str_len(char *str)
 {
 	int	i;
-	
+
 	i = 0;
 	while (str[i])
 		i++;
@@ -28,18 +28,18 @@ char	*ft_strcpy(char *src, char *dest)
 
 	i = 0;
 	while (src[i])
-        {
+	{
 		dest[i] = src[i];
 		i++;
-        }
-	return (dest);	
+	}
+	return (dest);
 }
 
 char	*ft_strdup(char *src)
 {
-	int	size;
+	int		size;
 	char	*cpy;
-	
+
 	size = ft_str_len(src) + 1;
 	cpy = (char *)malloc(size * sizeof(char));
 	if (cpy == NULL)
