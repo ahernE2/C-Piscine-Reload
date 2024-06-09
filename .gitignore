@@ -2,3 +2,5 @@ quitHeading.sh
 a.out
 ft_putchar.c
 main.c
+test.txt
+ft_display_file
