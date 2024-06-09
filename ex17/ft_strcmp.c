@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alejhern <alejhern@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/06 21:42:01 by alejhern          #+#    #+#             */
-/*   Updated: 2024/06/06 21:42:07 by alejhern         ###   ########.fr       */
+/*   Created: 2024/06/09 21:47:51 by alejhern          #+#    #+#             */
+/*   Updated: 2024/06/09 21:48:04 by alejhern         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strcpy(char *dest, char *src)
+int	ft_strcmp(char *s1, char *s2)
 {
 	int	i;
 
 	i = 0;
-	while (src[i])
-	{
-		dest[i] = src[i];
+	while (s1[i] && s2[i] && s1[i] == s2[i])
 		i++;
-	}
-	dest[i] = '\0';
-	return (dest);
+	return (s1[i] - s2[i]);
 }
