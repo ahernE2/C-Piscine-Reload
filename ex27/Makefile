@@ -6,7 +6,7 @@
 #    By: alejhern <alejhern@student.42barcelon      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/09 19:09:09 by alejhern          #+#    #+#              #
-#    Updated: 2024/06/09 19:47:43 by alejhern         ###   ########.fr        #
+#    Updated: 2024/06/10 20:55:46 by alejhern         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,10 +14,7 @@
 NAME = ft_display_file
 
 #Archivos Fuente
-SRCS = *.c
-
-#Archivos objeto generados durante la compilacion
-OBJECTS = ${SRC:.c=.o}
+SRCS = ft_display_file.c
 
 #Flags de compilacion
 FLAGS = -Wall -Werror -Wextra

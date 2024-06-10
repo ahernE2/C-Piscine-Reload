@@ -6,7 +6,7 @@
 /*   By: alejhern <alejhern@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 19:08:41 by alejhern          #+#    #+#             */
-/*   Updated: 2024/06/09 19:51:15 by alejhern         ###   ########.fr       */
+/*   Updated: 2024/06/10 21:07:50 by alejhern         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,12 @@ void	ft_putchar(char c)
 void	ft_display_file(int fd)
 {
 	char	buffer;
+	int	byte;
 
-	while (read(fd, &buffer, 1))
+	while ((byte = read(fd, &buffer, 1)) == 1)
 		ft_putchar(buffer);
+	if (byte == -1)
+		write(2,"Cannot read file.",17);
 }
 
 int	main(int argc, char **argv)
@@ -32,17 +35,20 @@ int	main(int argc, char **argv)
 
 	if (argc == 1)
 	{
-		write(1, "File name missing.", 18);
-		return (0);
+		write(2, "File name missing.", 18);
+		return (1);
 	}
 	if (argc > 2)
 	{
-		write(1, "Too many arguments.", 19);
-		return (0);
+		write(2, "Too many arguments.", 19);
+		return (1);
 	}
 	fd = open(argv[1], O_RDONLY);
 	if (fd == -1)
-		write(1, "Cannot read file.", 17);
+	{
+		write(2, "Cannot read file.", 17);
+		return (1);
+	}
 	ft_display_file(fd);
 	close(fd);
 	return (0);
