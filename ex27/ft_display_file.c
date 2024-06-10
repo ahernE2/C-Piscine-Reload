@@ -6,7 +6,7 @@
 /*   By: alejhern <alejhern@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 19:08:41 by alejhern          #+#    #+#             */
-/*   Updated: 2024/06/10 22:27:28 by alejhern         ###   ########.fr       */
+/*   Updated: 2024/06/10 22:52:46 by alejhern         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	ft_display_file(int fd)
 		ft_putchar(buffer);
 		byte = read(fd, &buffer, 1);
 	}
-	if (byte == 0)
+	if (byte == -1)
 	{
 		write(2, "Cannot read file.", 17);
 		return (1);
