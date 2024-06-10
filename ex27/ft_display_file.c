@@ -6,7 +6,7 @@
 /*   By: alejhern <alejhern@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 19:08:41 by alejhern          #+#    #+#             */
-/*   Updated: 2024/06/10 22:11:05 by alejhern         ###   ########.fr       */
+/*   Updated: 2024/06/10 22:27:28 by alejhern         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,23 @@ void	ft_putchar(char c)
 	write(1, &c, 1);
 }
 
-void	ft_display_file(int fd)
+int	ft_display_file(int fd)
 {
 	char	buffer;
+	int		byte;
 
-	while (read(fd, &buffer, 1) != 0)
+	byte = read(fd, &buffer, 1);
+	while (byte != 0)
+	{
 		ft_putchar(buffer);
+		byte = read(fd, &buffer, 1);
+	}
+	if (byte == 0)
+	{
+		write(2, "Cannot read file.", 17);
+		return (1);
+	}
+	return (0);
 }
 
 int	main(int argc, char **argv)
@@ -46,7 +57,8 @@ int	main(int argc, char **argv)
 		write(2, "Cannot read file.", 17);
 		return (1);
 	}
-	ft_display_file(fd);
+	if (ft_display_file(fd) == 1)
+		return (1);
 	close(fd);
 	return (0);
 }
