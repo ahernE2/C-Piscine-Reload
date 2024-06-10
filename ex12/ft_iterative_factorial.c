@@ -6,7 +6,7 @@
 /*   By: alejhern <alejhern@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 21:13:01 by alejhern          #+#    #+#             */
-/*   Updated: 2024/06/09 21:30:57 by alejhern         ###   ########.fr       */
+/*   Updated: 2024/06/10 21:22:41 by alejhern         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	ft_iterative_factorial(int nb)
 
 	result = 1;
 	if (nb <= 0 || nb > 12)
-		return(0);
+		return (0);
 	while (nb > 0 && nb != 1)
 	{
 		result *= nb;

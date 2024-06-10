@@ -6,7 +6,7 @@
 /*   By: alejhern <alejhern@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 19:08:41 by alejhern          #+#    #+#             */
-/*   Updated: 2024/06/10 21:07:50 by alejhern         ###   ########.fr       */
+/*   Updated: 2024/06/10 21:31:12 by alejhern         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,16 @@ void	ft_putchar(char c)
 void	ft_display_file(int fd)
 {
 	char	buffer;
-	int	byte;
+	int		byte;
 
-	while ((byte = read(fd, &buffer, 1)) == 1)
+	byte = read(fd, &buffer, 1);
+	while (byte == 1)
+	{
 		ft_putchar(buffer);
+		byte = read(fd, &buffer, 1);
+	}
 	if (byte == -1)
-		write(2,"Cannot read file.",17);
+		write(2, "Cannot read file.", 17);
 }
 
 int	main(int argc, char **argv)
