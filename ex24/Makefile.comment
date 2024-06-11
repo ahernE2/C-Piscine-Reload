@@ -1,0 +1,66 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile.comment                                   :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: alejhern <alejhern@student.42barcelon      +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/06/11 23:49:19 by alejhern          #+#    #+#              #
+#    Updated: 2024/06/11 23:49:27 by alejhern         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+# Nombre del programa (la librería a crear)
+NAME = libft.a
+
+# Archivos fuente: lista de archivos .c que contienen el código fuente de la librería
+SRCS = srcs/ft_putchar.c srcs/ft_putstr.c srcs/ft_strcmp.c srcs/ft_strlen.c srcs/ft_swap.c
+
+# Archivos objeto: lista de archivos .o que son el resultado de compilar los archivos fuente
+OBJ = srcs/ft_putchar.o srcs/ft_putstr.o srcs/ft_strcmp.o srcs/ft_strlen.o srcs/ft_swap.o
+
+# Flags de compilación: opciones para el compilador que controlan el proceso de compilación
+# -Wall: activa todos los mensajes de advertencia del compilador
+# -Werror: convierte todas las advertencias en errores
+# -Wextra: activa advertencias adicionales que no están cubiertas por -Wall
+FLAGS = -Wall -Werror -Wextra
+
+# Regla 'all': se ejecuta cuando se invoca 'make' sin argumentos.
+# Su propósito es asegurar que la librería ${NAME} sea creada.
+all: ${NAME}
+
+# Regla para crear la librería ${NAME} a partir de los archivos objeto ${OBJ}
+# La librería se crea utilizando el comando 'ar', que crea archivos de bibliotecas
+${NAME}: ${OBJ}
+	@echo "(ﾉ◕ヮ◕)ﾉ*:・ﾟ✧ Creando librería, espere unos segundos..."
+	ar -q ${NAME} ${OBJ}  # 'ar -q' añade archivos al archivo de biblioteca ${NAME}
+	@echo "(•̀ᴗ•́)و $(NAME) generado!"
+
+# Regla para compilar un archivo .c en un archivo .o
+# El archivo .o (objeto) se genera compilando el archivo .c (fuente) correspondiente.
+# Utiliza las opciones de compilación especificadas en FLAGS y busca los headers en el directorio 'includes'
+%.o: %.c
+	@echo "(ﾉ◕ヮ◕)ﾉ*:・ﾟ✧ Compilando programa, espere unos segundos..."
+	cc -c ${FLAGS} -o $@ $^ -Iincludes  # 'cc -c' compila sin enlazar, '-o $@' especifica el archivo de salida, '-Iincludes' especifica el directorio de los headers
+	@echo "(•̀ᴗ•́)و $(NAME) generado!"
+
+# Regla 'clean': elimina los archivos objeto (.o).
+# Es útil para limpiar el directorio de compilación.
+clean:
+	rm -f ${OBJ}
+	@echo "¯\_(ツ)_/¯ Objects removidos!"
+
+# Regla 'fclean': elimina los archivos objeto y también la librería.
+# Es útil para una limpieza completa del proyecto.
+fclean: clean
+	rm -f ${NAME}
+	@echo "(╯°□°）╯︵ ┻━┻ $(NAME) removido!"
+
+# Regla 're': rehace todo el proyecto.
+# Primero limpia completamente (usando 'fclean'), y luego recompila todo (usando 'all').
+re: fclean all
+
+# Declaración de las reglas 'all', 'clean', y 'fclean' como 'phony' (falsas).
+# Esto indica a 'make' que estas reglas no corresponden a archivos reales.
+.PHONY: all clean fclean
+
