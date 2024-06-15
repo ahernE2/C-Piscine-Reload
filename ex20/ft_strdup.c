@@ -6,7 +6,7 @@
 /*   By: alejhern <alejhern@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 19:01:27 by alejhern          #+#    #+#             */
-/*   Updated: 2024/06/09 22:04:04 by alejhern         ###   ########.fr       */
+/*   Updated: 2024/06/15 21:25:15 by alejhern         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ char	*ft_strdup(char *src)
 	{
 		return (cpy);
 	}
-	cpy = ft_strcpy(src, cpy);
+	ft_strcpy(src, cpy);
 	return (cpy);
 }
 /*
