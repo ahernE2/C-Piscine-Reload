@@ -6,7 +6,7 @@
 #    By: alejhern <alejhern@student.42barcelon      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/11 18:29:25 by alejhern          #+#    #+#              #
-#    Updated: 2024/06/11 18:29:42 by alejhern         ###   ########.fr        #
+#    Updated: 2024/06/16 19:57:59 by alejhern         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,5 @@ clean:
 fclean: clean
 	rm -f ${NAME}
 	@echo "(╯°□°）╯︵ ┻━┻ ${NAME} removido!"
-
-re: fclean all
 
 .PHONY: all clean fclean
