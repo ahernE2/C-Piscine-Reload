@@ -6,7 +6,7 @@
 /*   By: alejhern <alejhern@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 18:09:19 by alejhern          #+#    #+#             */
-/*   Updated: 2024/06/15 18:10:12 by alejhern         ###   ########.fr       */
+/*   Updated: 2024/06/16 19:45:13 by alejhern         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,36 +20,34 @@ void	ft_putchar(char c)
 
 int	ft_readfile(char *file)
 {
-	int		opn;
-	int		ltnb;
+	int		fd;
+	int		byte;
 	char	buffer;
 
-	opn = open(file, O_RDONLY);
-	if (opn == -1)
+	fd = open(file, O_RDONLY);
+	if (fd == -1)
 	{
 		write(2, "Cannot read file.\n", 18);
 		return (1);
 	}
-	ltnb = read(opn, &buffer, 1);
-	while (ltnb == 1)
+	byte = read(fd, &buffer, 1);
+	while (byte == 1)
 	{
 		ft_putchar(buffer);
-		ltnb = read(opn, &buffer, 1);
+		byte = read(fd, &buffer, 1);
 	}
-	if (ltnb == -1)
+	if (byte == -1)
 	{
 		write(2, "Cannot read file.\n", 18);
-		close(opn);
+		close(fd);
 		return (1);
 	}
-	close(opn);
+	close(fd);
 	return (0);
 }
 
 int	main(int argc, char **argv)
 {
-	int	result;
-
 	if (argc == 1)
 	{
 		write(2, "File name missing.\n", 19);
@@ -60,6 +58,5 @@ int	main(int argc, char **argv)
 		write(2, "Too many arguments.\n", 20);
 		return (1);
 	}
-	result = ft_readfile(argv[1]);
-	return (result);
+	return (ft_readfile(argv[1]));
 }
